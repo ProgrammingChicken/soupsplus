@@ -1,5 +1,5 @@
 s = {"interesting", "chicken", "pepper", "pork", "spag_os", "epic", "liver",}
-h = {6, 7, 8, 9, 7, 5, 20, 1}
+h = {6, 7, 8, 9, 7, 20, 1}
 d = {"Interesting", "Chicken", "Pepper", "Pork", "Spaghezti O", "EPIC", "Nasty Liver"}
 for i = 1, 7 do
   minetest.register_craftitem("soupsplus:soup_"..s[i], {
