@@ -1,8 +1,9 @@
 s = {"interesting", "chicken", "pepper", "pork", "spag_os", "epic", "liver",}
 h = {6, 7, 8, 9, 7, 5, 20, 1}
+d = {"Interesting", "Chicken", "Pepper", "Pork", "Spaghezti O", "EPIC", "Nasty Liver"}
 for i = 1, 7 do
   minetest.register_craftitem("soupsplus:soup_"..s[i], {
-    description = s[i].." soup",
+    description = d[i].." Soup",
     stack_max = 3,
 	  inventory_image = "soupsplus_soup_"..s[i]..".png",
     on_use = function(itemstack, user, pointed_thing)
@@ -13,7 +14,7 @@ for i = 1, 7 do
   })
 end
 minetest.register_craftitem("soupsplus:bowl", {
-  description = "empty bowl",
+  description = "Empty Bowl",
 	inventory_image = "soupsplus_bowl.png",
 	stack_max = 3,
 	liquids_pointable = true,
@@ -33,12 +34,12 @@ minetest.register_craftitem("soupsplus:bowl", {
 	end,
 })
 minetest.register_craftitem("soupsplus:bowl_water", {
-  description = "bowl of warm water",
-  inventory_image = "soupsplus_water.png",
+  description = "Bowl of Warm Water",
+  inventory_image = "soupsplus_bowl_water.png",
   stack_max = 3,
 })
 minetest.register_craftitem("soupsplus:spag_os", {
-  description = "spaghetzi o's",
+  description = "Spaghetzi O's",
   inventory_image = "soupsplus_spag_os.png",
   stack_max = 3,
   on_use = function(itemstack, user, pointed_thing)
