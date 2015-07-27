@@ -9,8 +9,8 @@ end
 for i = 1, table.len(s) do
   minetest.register_craftitem("soupsplus:soup_"..s[i], {
     description = s[i].." soup",
-    stack_max = 1,
-	  inventory_image = "soupsplus_"..s[i]..".png",
+    stack_max = 3,
+	  inventory_image = "soupsplus_soup_"..s[i]..".png",
     on_use = function(itemstack, user, pointed_thing)
       minetest.item_eat(h)
       itemstack:take_item()
@@ -30,7 +30,7 @@ minetest.register_craftitem("soupsplus:bowl",
 	    itemstack:take_item()
 	    local inv = user:get_inventory()
 	    if room_for_item("main", "soupsplus:bowl") then
-	      inv:add_item
+	      inv:add_item("main", "soupsplus:bowl_water")
 	    else then
 	      
 	    end
@@ -38,16 +38,31 @@ minetest.register_craftitem("soupsplus:bowl",
     end
 	end,
 })
-minetest.register_craftitem("soupsplus:bowl_of_water", {
+minetest.register_craftitem("soupsplus:bowl_water", {
   description = "bowl of warm water",
-	inventory_image = "soupsplus_water.png",
-	stack_max = 3,
+  inventory_image = "soupsplus_water.png",
+  stack_max = 3,
 })
-minetest.register_craft("soupsplus:bowl_of_water 3", {
+minetest.register_craftitem("soupsplus:spag_os", {
+  description = "spaghetzi o's",
+  inventory_image = "soupsplus_spag_os.png",
+  stack_max = 3,
+  on_use = function(itemstack, user, pointed_thing)
+    minetest.item_eat(2)
+    itemstack:take_item()
+    return itemstack
+  end,
+})
+minetest.register_craft("soupsplus:spag_os 4", {
+  {"farming:wheat","farming:string","farming:wheat"},
+  {"farming:string","bucket:bucket_water","farming:string"},
+  {"farming:wheat", "farming:string", "farming:wheat"},
+})
+minetest.register_craft("soupsplus:bowl_water 3", {
   {"default:wood","bucket:bucket_water","default:wood"},
   {"default:stick","default:wood","default:stick"},
 })
-minetest.register_craft("soupsplus:bowl_of_water 1", {
+minetest.register_craft("soupsplus:bowl 1", {
   {"default:wood","","default:wood"},
   {"default:stick","default:wood","default:stick"},
 })
@@ -56,14 +71,26 @@ minetest.register_craft("soupsplus:soup_interesting 1", {
   {"","soupsplus:soup_liver",""},
 })
 minetest.register_craft("soupsplus:soup_chicken 1", {
-  {"default:sword_wood","default:","default:mossycobble"},
+  {"farming:straw","farming:seed_wheat","default:dirt"},
   {"","soupsplus:soup_liver",""},
 })
 minetest.register_craft("soupsplus:soup_pepper 3", {
   {"default:wood","bucket:bucket_lava","default:"},
   {"","soupsplus:soup_liver",""},
 })
-
-minetest.register_on_craft(func(itemstack, player, old_craft_grid, craft_inv)
-
-)
+minetest.register_craft("soupsplus:soup_pork 1", {
+  {"bucket:bucket_water","default:dirt","bucket:bucket_water"},
+  {"","soupsplus:soup_liver",""},
+})
+minetest.register_craft("soupsplus:soup_spag_os 2", {
+  {"soupsplus:spag_os","soupsplus:spag_os","soupsplus:spag_os"},
+  {"","soupsplus:bowl_water",""},
+})
+minetest.register_craft("soupsplus:soup_epic 3", {
+  {"default:steel","default:steel","default:steel"},
+  {"","soupsplus:soup_spag_os",""},
+})
+minetest.register_craft("soupsplus:soup_liver 3", {
+  {"default:dirt","default:coal","default:dirt"},
+  {"","soupsplus:bowl_water",""},
+})
