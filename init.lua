@@ -24,13 +24,9 @@ minetest.register_craftitem("soupsplus:bowl", {
 	    minetest.set_node("default:air", pos)
 	    itemstack:take_item()
 	    local inv = user:get_inventory()
-	    if room_for_item("main", "soupsplus:bowl") then
-	      inv:add_item("main", "soupsplus:bowl_water")
-	    else
-	      
-	    end
+	    inv:add_item("main", "soupsplus:bowl_water")
 	    return itemstack
-    end
+	  end
 	end,
 })
 minetest.register_craftitem("soupsplus:bowl_water", {
@@ -41,7 +37,6 @@ minetest.register_craftitem("soupsplus:bowl_water", {
 minetest.register_craftitem("soupsplus:spag_os", {
   description = "Spaghetzi O's",
   inventory_image = "soupsplus_spag_os.png",
-  stack_max = 3,
   on_use = function(itemstack, user, pointed_thing)
     minetest.item_eat(2)
     itemstack:take_item()
@@ -49,11 +44,11 @@ minetest.register_craftitem("soupsplus:spag_os", {
   end,
 })
 minetest.register_craft({
-output = "soupsplus:spag_os 4", 
+output = "soupsplus:spag_os 12", 
 recipe = {
-  {"farming:wheat","farming:string","farming:wheat"},
+  {"farming:flour","farming:string","farming:flour"},
   {"farming:string","bucket:bucket_water","farming:string"},
-  {"farming:wheat", "farming:string", "farming:wheat"},}
+  {"farming:flour", "farming:string", "farming:flour"},}
 })
 minetest.register_craft({
 output = "soupsplus:bowl_water 3", 
